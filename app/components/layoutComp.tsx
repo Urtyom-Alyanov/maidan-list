@@ -1,8 +1,8 @@
 "use client";
-import icon from "@/app/icon-maidan.svg";
 import { Header, Layout, ScrollArea } from "@meduza-bank/ui-kit";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import icon from "../icon-maidan.svg";
 
 export const LayoutComponent: React.FC<React.PropsWithChildren> = ({
   children,

@@ -1,12 +1,13 @@
-import icon from "@/app/icon-maidan.svg";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { LayoutComponent } from "./components/layoutComp";
 import { Providers } from "./components/providers";
+import icon from "./icon-maidan.svg";
+
+import "@meduza-bank/ui-kit/style.css";
 
 import "@meduza-bank/ui-kit/sf-ui-stylesheet.css";
 import "@meduza-bank/ui-kit/src-style.css";
-import "@meduza-bank/ui-kit/style.css";
 import "@meduza-bank/ui-kit/vk-sans-stylesheet.css";
 
 export const metadata: Metadata = {

@@ -55,7 +55,7 @@ export const MainPage = ({
             }
           >
             <UserIcon className="mr-2 h-4 w-4" />
-            Пользователи{" "}
+            Пользователи
             <span className="text-muted-foreground ml-2">({count.Users})</span>
           </Button>
         </Link>
@@ -70,7 +70,7 @@ export const MainPage = ({
             }
           >
             <Building2Icon className="mr-2 h-4 w-4" />
-            Организации{" "}
+            Организации
             <span className="text-muted-foreground ml-2">
               ({count.Organizations})
             </span>
@@ -184,7 +184,7 @@ export const MainPage = ({
                       <p className="text-xs text-muted-foreground">
                         Принадлежность к организациям:
                       </p>
-                      <p>
+                      <div>
                         {user.Organizations.map((search, index, arr) => (
                           <>
                             <Link href={{ query: { search, view: "orgs" } }}>
@@ -199,7 +199,7 @@ export const MainPage = ({
                             {arr.length - 1 > index && ", "}
                           </>
                         ))}
-                      </p>
+                      </div>
                     </div>
                     <Link
                       href={{
