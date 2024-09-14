@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  outputFileTracingRoot: path.join(__dirname, "./data"),
+  experimental: {
+    outputFileTracingIncludes: {
+      "/data": ["./data/**/*"],
+    },
+  },
 };
 
 export default nextConfig;
