@@ -8,13 +8,13 @@ export default async function Home({
   searchParams: { [key: string]: string | undefined };
 }) {
   const users: MaidanUser[] = JSON.parse(
-    await fs.readFile(process.cwd() + "/src/app/data/users.json", "utf-8")
+    await fs.readFile(process.cwd() + "/data/users.json", "utf-8")
   );
   const count: MaidanCount = JSON.parse(
-    await fs.readFile(process.cwd() + "/src/app/data/count.json", "utf-8")
+    await fs.readFile(process.cwd() + "/data/count.json", "utf-8")
   );
   const orgs: MaidanOrganization[] = JSON.parse(
-    await fs.readFile(process.cwd() + "/src/app/data/orgs.json", "utf-8")
+    await fs.readFile(process.cwd() + "/data/orgs.json", "utf-8")
   );
 
   const currentView = (searchParams.view as "users" | "orgs") || "users";
