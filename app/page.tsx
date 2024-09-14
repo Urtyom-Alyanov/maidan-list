@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import path from "path";
 import { MainPage } from "./components/mainPage";
 import { MaidanCount, MaidanOrganization, MaidanUser } from "./types";
 
@@ -8,13 +9,13 @@ export default async function Home({
   searchParams: { [key: string]: string | undefined };
 }) {
   const users: MaidanUser[] = JSON.parse(
-    await fs.readFile(process.cwd() + "/data/users.json", "utf-8")
+    await fs.readFile(path.join(process.cwd(), "/app/users.json"), "utf-8")
   );
   const count: MaidanCount = JSON.parse(
-    await fs.readFile(process.cwd() + "/data/count.json", "utf-8")
+    await fs.readFile(path.join(process.cwd(), "/app/count.json"), "utf-8")
   );
   const orgs: MaidanOrganization[] = JSON.parse(
-    await fs.readFile(process.cwd() + "/data/orgs.json", "utf-8")
+    await fs.readFile(path.join(process.cwd(), "/app/orgs.json"), "utf-8")
   );
 
   const currentView = (searchParams.view as "users" | "orgs") || "users";
