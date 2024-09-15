@@ -77,12 +77,12 @@ export const MainPage = ({
           </Button>
         </Link>
       </div>
-      <div className="flex gap-2 justify-center mt-5 flex-wrap">
+      <div className="flex gap-2 justify-center max-w-full mt-5 flex-col sm:flex-row sm:flex-wrap">
         {users.map(user => {
           return (
             <Dialog key={v7()}>
               <DialogTrigger>
-                <Card className="w-96 cursor-pointer select-none group h-60 relative overflow-hidden max-w-full">
+                <Card className="sm:w-96 w-full cursor-pointer select-none group h-60 relative overflow-hidden max-w-full">
                   {typeof user.Images !== "string" ? (
                     <img
                       src={user.Images[0] || "https://placehold.co/500"}
@@ -222,7 +222,7 @@ export const MainPage = ({
           return (
             <Dialog key={v7()}>
               <DialogTrigger>
-                <Card className="w-96 cursor-pointer select-none group h-24 relative overflow-hidden max-w-full">
+                <Card className="sm:w-96 w-full cursor-pointer select-none group h-60 relative overflow-hidden max-w-full">
                   <div className="shadow-sm flex absolute bg-background/70 p-2 rounded-md top-0 left-0 m-2">
                     {Array(org.Rating).fill(<StarIcon className="w-4 h-4" />)}
                   </div>
