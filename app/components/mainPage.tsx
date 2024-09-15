@@ -96,6 +96,9 @@ export const MainPage = ({
                   )}
                   <div className="shadow-sm absolute bg-background/70 p-2 rounded-md top-0 left-0 m-2">
                     {Array(user.Rating).fill(<StarIcon className="w-4 h-4" />)}
+                    {Array(5 - user.Rating).fill(
+                      <StarIcon className="w-4 h-4 text-muted-foreground fill-muted-foreground" />
+                    )}
                   </div>
                   <div className="shadow-sm absolute bg-background/70 p-2 rounded-md bottom-0 left-0 m-2 text-left">
                     <h4>{user.Names[0]}</h4>
@@ -113,6 +116,9 @@ export const MainPage = ({
                       <div className="inline-flex">
                         {Array(user.Rating).fill(
                           <StarIcon className="w-4 h-4 md:w-5 md:h-5" />
+                        )}
+                        {Array(5 - user.Rating).fill(
+                          <StarIcon className="w-4 h-4 text-muted-foreground fill-muted-foreground" />
                         )}
                       </div>
                     </div>
@@ -225,6 +231,9 @@ export const MainPage = ({
                 <Card className="sm:w-96 w-full cursor-pointer select-none group h-24 relative overflow-hidden max-w-full">
                   <div className="shadow-sm flex absolute bg-background/70 p-2 rounded-md top-0 left-0 m-2">
                     {Array(org.Rating).fill(<StarIcon className="w-4 h-4" />)}
+                    {Array(5 - org.Rating).fill(
+                      <StarIcon className="w-4 h-4 text-muted-foreground fill-muted-foreground" />
+                    )}
                   </div>
                   <div className="shadow-sm absolute bg-background/70 p-2 rounded-md bottom-0 left-0 m-2 text-left">
                     <h4>{org.Names[0]}</h4>
@@ -242,6 +251,9 @@ export const MainPage = ({
                       <div className="inline-flex">
                         {Array(org.Rating).fill(
                           <StarIcon className="w-4 h-4 md:w-5 md:h-5" />
+                        )}
+                        {Array(5 - org.Rating).fill(
+                          <StarIcon className="w-4 h-4 text-muted-foreground fill-muted-foreground" />
                         )}
                       </div>
                     </div>
