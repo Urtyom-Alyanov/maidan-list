@@ -47,11 +47,11 @@ export const MainPage = ({
         <Link href={{ query: { view: "users" } }}>
           <Button
             size="sm"
-            variant={currentView === "users" ? "outline" : "ghost"}
+            variant={currentView !== "users" ? "outline" : "ghost"}
             className={
-              currentView === "users"
+              currentView !== "users"
                 ? "hover:shadow border border-transparent"
-                : "shadow hover:bg-background"
+                : "shadow border border-border hover:bg-background"
             }
           >
             <UserIcon className="mr-2 h-4 w-4" />
@@ -62,11 +62,11 @@ export const MainPage = ({
         <Link href={{ query: { view: "orgs" } }}>
           <Button
             size="sm"
-            variant={currentView === "orgs" ? "outline" : "ghost"}
+            variant={currentView !== "orgs" ? "outline" : "ghost"}
             className={
-              currentView === "orgs"
+              currentView !== "orgs"
                 ? "hover:shadow border border-transparent"
-                : "shadow hover:bg-background"
+                : "shadow border border-border hover:bg-background"
             }
           >
             <Building2Icon className="mr-2 h-4 w-4" />
