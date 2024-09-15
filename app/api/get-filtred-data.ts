@@ -49,7 +49,7 @@ export function OrgFilter(
     const rating = filterData.activity || "12345";
 
     const activityFilter = val.Activity.some(val => val.includes(activity));
-    const ratingFilter = rating.split("").map(parseInt).includes(val.Rating);
+    const ratingFilter = rating.split("").includes(val.Rating.toString());
 
     const search = filterData.search || "";
     const searchFilter = val.Names.join(", ")
