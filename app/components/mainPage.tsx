@@ -249,6 +249,16 @@ export const MainPage = ({
                   <DialogDescription>
                     Активность: {org.Activity.join(", ")}
                   </DialogDescription>
+                  {org.Names.length > 1 && (
+                    <div className="border p-2 rounded-md">
+                      <p className="text-xs text-muted-foreground">
+                        Также известна как:
+                      </p>
+                      <p className="flex gap-2 items-center">
+                        {org.Names.slice(1).join(", ")}
+                      </p>
+                    </div>
+                  )}
                 </DialogHeader>
               </DialogContent>
             </Dialog>
