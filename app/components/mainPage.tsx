@@ -222,7 +222,7 @@ export const MainPage = ({
           return (
             <Dialog key={v7()}>
               <DialogTrigger>
-                <Card className="sm:w-96 w-full cursor-pointer select-none group h-60 relative overflow-hidden max-w-full">
+                <Card className="sm:w-96 w-full cursor-pointer select-none group h-24 relative overflow-hidden max-w-full">
                   <div className="shadow-sm flex absolute bg-background/70 p-2 rounded-md top-0 left-0 m-2">
                     {Array(org.Rating).fill(<StarIcon className="w-4 h-4" />)}
                   </div>
