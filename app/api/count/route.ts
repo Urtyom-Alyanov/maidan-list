@@ -1,11 +1,13 @@
-import { promises as fs } from "fs";
-import path from "path";
 import { MaidanCount } from "../../types";
+import { getCachedData } from "../get-cached-data";
 
 export async function GET() {
-  const count: MaidanCount = JSON.parse(
-    await fs.readFile(path.join(process.cwd(), "/app/count.json"), "utf-8")
-  );
+  const [users, orgs] = await getCachedData();
+
+  const count: MaidanCount = {
+    Organizations: orgs.length,
+    Users: users.length,
+  };
 
   return Response.json(count);
 }
