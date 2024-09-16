@@ -20,9 +20,9 @@ export const MainPageHeader = ({
           </p>
           <p>(Майдан-список)</p>
         </h1>
-        <p className="text-center text-sm font-semibold text-muted-foreground font-vksans">
+        {/* <p className="text-center text-sm font-semibold text-muted-foreground font-vksans">
           Редакция от 13 сентября 2024 года
-        </p>
+        </p> */}
         <p className="text-center text-sm font-semibold text-muted-foreground font-vksans">
           <Button variant="link" asChild size="sm">
             <a
