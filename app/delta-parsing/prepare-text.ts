@@ -7,7 +7,13 @@ export const removeSuffix = (value: string, suffix: string) =>
 export function prepareText(text: string): string {
   return removeSuffix(
     removePrefix(
-      removePrefix(text.replaceAll("\r\n\t\t", "").trim(), "\n\n"),
+      removePrefix(
+        text
+          .replaceAll("\r\n\t\t", "")
+          .replaceAll("клочков_ПЕТУШАРА", " ")
+          .trim(),
+        "\n\n"
+      ),
       "\n"
     ),
     "\n"
