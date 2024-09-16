@@ -19,6 +19,7 @@ export async function getAndParseData(): Promise<
   readonly [MaidanUser[], MaidanOrganization[]]
 > {
   try {
+    if (JSON.parse(process.env.USE_LOCAL_DATA || "false")) throw Error();
     const doc = await getDataFromDeltaStreaming();
 
     const [orgTable, userTable] = getTablesFromDocument(doc);

@@ -6,5 +6,5 @@ import { getAndParseData } from "../delta-parsing/parse";
 export const getCachedData = unstable_cache(
   async () => getAndParseData(),
   ["maidan-data"],
-  { revalidate: 3600 }
+  { revalidate: 1800 }
 );
