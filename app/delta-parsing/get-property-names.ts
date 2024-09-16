@@ -1,4 +1,4 @@
-import { prepareText } from "./prepare-text";
+import { getTextFromNode } from "./get-text-from-node";
 
 export function getPropertyNames<Names extends string = string>(
   table: HTMLTableElement,
@@ -8,9 +8,8 @@ export function getPropertyNames<Names extends string = string>(
     table.querySelectorAll("tr")[0].querySelectorAll("td")
   );
   const propertyNames: Names[] = propertyNameTables.map(val => {
-    const htmlText = val.textContent || val.innerText;
-    const text = htmlText
-      ? prepareText(htmlText)
+    const text = val
+      ? getTextFromNode(val)
           .split(" ")
           .map(val => {
             if (!val) return;
@@ -18,7 +17,7 @@ export function getPropertyNames<Names extends string = string>(
             return first + val.slice(1).toLowerCase();
           })
           .join("")
-      : htmlText;
+      : val;
 
     if (Object.keys(otherPropertyNames).includes(text))
       return otherPropertyNames[text];
@@ -28,6 +27,11 @@ export function getPropertyNames<Names extends string = string>(
   if (Object.keys(otherPropertyNames).includes("ГлавнаяОрганизация"))
     propertyNames.push(otherPropertyNames["ГлавнаяОрганизация"]);
   else propertyNames.push("ГлавнаяОрганизация" as Names);
+
+  if (
+    Object.values(otherPropertyNames).every(val => propertyNames.includes(val))
+  )
+    throw Error();
 
   return propertyNames;
 }

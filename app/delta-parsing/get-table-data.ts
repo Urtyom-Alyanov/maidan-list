@@ -1,4 +1,4 @@
-import { prepareText } from "./prepare-text";
+import { getTextFromNode } from "./get-text-from-node";
 
 export function getTableDataOrg(
   table: HTMLTableElement
@@ -9,7 +9,7 @@ export function getTableDataOrg(
     .slice(1)
     .map(node => {
       const data = Array.from(node.querySelectorAll("td")).map(node => {
-        const text = prepareText(node.textContent || node.innerText);
+        const text = getTextFromNode(node);
 
         if (
           text.replaceAll(" ", "").includes("★") &&
@@ -36,29 +36,32 @@ export function getTableDataUser(
     .map(node => {
       const arr = Array.from(node.querySelectorAll("td"));
       if (arr.length === 1) {
-        main_org = prepareText(arr[0].textContent || arr[0].innerText);
+        main_org = getTextFromNode(arr[0]);
         return;
       }
       const data = arr.map(node => {
-        const text = prepareText(node.textContent || node.innerText);
+        const text = getTextFromNode(node);
         const img = Array.from(node.querySelectorAll("img"));
 
         if (img.length > 0 && img) {
-          return img.map(node => {
-            const src = node.src;
-            if (
-              src.startsWith("http://") ||
-              src.startsWith("https://") ||
-              src.startsWith("//")
-            )
-              return src;
-            else
-              return new URL(
-                src,
-                process.env.DELTA_URL ||
-                  `https://delta-streaming.neocities.org/`
-              ).toString();
-          });
+          return img
+            .map(node => {
+              const src = node.src;
+              if (node.width < 100 && node.height < 100) return;
+              if (
+                src.startsWith("http://") ||
+                src.startsWith("https://") ||
+                src.startsWith("//")
+              )
+                return src;
+              else
+                return new URL(
+                  src,
+                  process.env.DELTA_URL ||
+                    `https://delta-streaming.neocities.org/`
+                ).toString();
+            })
+            .filter(val => val);
         }
         if (text === "\xa0") return [] as string[];
         if (
